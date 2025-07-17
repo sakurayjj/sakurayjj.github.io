@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章列表 | mimimirai_167167h's Blog</title>
+    <!-- FontAwesome CDN 用于图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="posts.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="/images/tx.jpg" alt="avatar" class="logo" />
+            <span class="nav-title">Home</span>
+            <span class="nav-icon">🌙</span>
+            <span class="nav-lang"></span>
+        </div>
+        <div class="navbar-center">
+            <a href="/index.html">✍ 关于我</a>
+            <a href="#">📄 文章</a>
+            <a href="#">🌍 摸鱼日记</a>
+            <a href="/search/search.html">🔍 搜索</a>
+            <a href="https://github.com/" target="_blank">Ⓜ️Github</a>
+        </div>
+    </nav>
+
+    <!-- 主体内容 -->
+    <div class="main">
+        <!-- <div class="breadcrumbs">首页(Home)</div> -->
+        <div class="breadcrumbs">
+            <a href="/index.html" style="text-decoration: none; color: inherit;">首页(Home)</a>
+        </div>
+
+        <div class="posts-title">
+            Posts
+            <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                <path d="M8 12h8M8 16h5M8 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+        </div>
+        <div id="post-list" class="post-list"></div>
+        <div class="pagination" id="pagination"></div>
+    </div>
+
+    <script src="posts.js"></script>
+</body>
+
+</html>

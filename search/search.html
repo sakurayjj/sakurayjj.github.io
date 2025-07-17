@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客搜索 | mimimirai_167167h</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,700&display=swap">
+    <style>
+        :root {
+            --bg: #f4f4f4;
+            --card-bg: #fff;
+            --main-text: #222;
+            --muted: #888;
+            --nav-bg: #fff;
+            --nav-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+            --link: #3964e6;
+            --hover: #f8f9fa;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--main-text);
+            font-size: 18px;
+            font-family: 'Noto Sans SC', 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            width: 100%;
+            min-height: 68px;
+            background: var(--nav-bg);
+            box-shadow: var(--nav-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .navbar-left .logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-left: 10px;
+            letter-spacing: 1px;
+        }
+
+        .nav-icon {
+            font-size: 1.4em;
+            margin-left: 8px;
+        }
+
+        .navbar-center {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 1.1rem;
+        }
+
+        .navbar-center a {
+            color: var(--main-text);
+            text-decoration: none;
+            transition: color .18s;
+            padding: 3px 8px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .navbar-center a:hover,
+        .navbar-center a.active {
+            color: var(--link);
+            background: var(--hover);
+        }
+
+        .navbar-center .active {
+            font-weight: bold;
+            text-decoration: underline;
+            color: var(--link);
+        }
+
+        .search-wrap {
+            width: 100vw;
+            min-height: 73vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .search-title {
+            font-size: 2.7rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            margin-top: 34px;
+            text-align: center;
+        }
+
+        .search-title .fa-search {
+            font-size: 1.3em;
+            vertical-align: -3px;
+            margin-left: 8px;
+            color: var(--muted);
+        }
+
+        .search-desc {
+            color: var(--muted);
+            font-size: 1.18em;
+            margin-bottom: 28px;
+            margin-top: 2px;
+            text-align: center;
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 38px;
+            width: 100%;
+        }
+
+        .search-input {
+            width: 540px;
+            max-width: 95vw;
+            padding: 13px 18px;
+            font-size: 1.25em;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            outline: none;
+            color: var(--main-text);
+            background: var(--card-bg);
+            transition: border-color 0.2s;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .search-input:focus {
+            border-color: var(--link);
+        }
+
+        .search-btn {
+            margin-left: 10px;
+            padding: 12px 28px;
+            font-size: 1.08em;
+            border-radius: 8px;
+            border: none;
+            background: #ececec;
+            color: #444;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background .15s;
+        }
+
+        .search-btn:hover {
+            background: var(--hover);
+            color: var(--link);
+        }
+
+        .footer {
+            width: 100vw;
+            text-align: center;
+            color: var(--muted);
+            font-size: 1em;
+            padding-bottom: 10px;
+            padding-top: 24px;
+        }
+
+        @media (max-width: 700px) {
+            .navbar {
+                padding: 0 3vw;
+                min-height: 48px;
+            }
+
+            .navbar-left .logo {
+                width: 32px;
+                height: 32px;
+            }
+
+            .nav-title {
+                font-size: 1.1rem;
+                margin-left: 4px;
+            }
+
+            .navbar-center {
+                font-size: 0.98em;
+                gap: 6px;
+            }
+
+            .search-title {
+                font-size: 2rem;
+                margin-top: 15px;
+            }
+
+            .search-desc {
+                font-size: 1em;
+                margin-bottom: 16px;
+            }
+
+            .search-input {
+                font-size: 1.03em;
+                padding: 9px 8px;
+            }
+
+            .search-btn {
+                padding: 8px 16px;
+                font-size: 1em;
+            }
+
+            .footer {
+                font-size: 0.93em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-title {
+                font-size: 1.14rem;
+                margin-top: 4px;
+            }
+
+            .search-box {
+                margin-bottom: 12px;
+            }
+
+            .search-input {
+                font-size: 0.93em;
+                padding: 7px 5px;
+            }
+
+            .search-btn {
+                padding: 7px 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="/images/tx.jpg" alt="avatar" class="logo" />
+            <span class="nav-title">Home</span>
+            <span class="nav-icon">🌙</span>
+        </div>
+        <div class="navbar-center">
+            <a href="/index.html">✍ 关于我</a>
+            <a href="/posts/posts.html">📄 文章</a>
+            <a href="#">🌍 摸鱼日记</a>
+            <a href="#" class="active">🔍 搜索</a>
+            <a href="https://github.com/" target="_blank">Ⓜ️Github</a>
+        </div>
+    </nav>
+    <!-- 搜索主内容 -->
+    <main class="search-wrap">
+        <div class="search-title">
+            mimimirai_167167h 博客搜索 <i class="fa fa-search"></i>
+        </div>
+        <div class="search-desc">
+            这是 mimimirai_167167h 博客搜索系统，用于站外搜索 CTFHub 文章
+        </div>
+        <form class="search-box" id="search-form" autocomplete="off">
+            <input id="search-input" class="search-input" type="search" placeholder="请输入关键词进行搜索" autofocus />
+            <button class="search-btn" type="submit"><i class="fa fa-search"></i> 搜索</button>
+        </form>
+    </main>
+    <!-- 页脚 -->
+    <div class="footer">
+        © 2025 mimimirai_167167h 的简体中文博客 | Visits: 55440 times
+    </div>
+    <script>
+        // 跳转必应 site:ctfhub.cn 关键词
+        document.getElementById('search-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var kw = document.getElementById('search-input').value.trim();
+            if (!kw) {
+                document.getElementById('search-input').focus();
+                return;
+            }
+            var q = encodeURIComponent('site:ctfhub.cn ' + kw);
+            window.open('https://www.bing.com/search?q=' + q, '_blank');
+        });
+    </script>
+</body>
+
+</html>

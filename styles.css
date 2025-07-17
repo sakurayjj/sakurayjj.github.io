@@ -1,0 +1,171 @@
+/* 重置样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    color: #222;
+    min-height: 100%;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 导航栏样式 */
+.navbar {
+    width: 100%;
+    background: #fff;
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-title {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.nav-icon {
+    font-size: 1.5rem;
+}
+
+.nav-lang a {
+    margin-left: 5px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar-center {
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar-center a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.1rem;
+}
+
+.navbar-center a:hover {
+    color: #3498db;
+}
+
+/* 主要内容区域 */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.wave {
+    font-size: 2.5rem;
+}
+
+.desc {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.socials i {
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.actions button {
+    background: #eaeaea;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.actions button:hover {
+    background: #dfdfdf;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .navbar-center {
+        gap: 0.8rem;
+    }
+
+    .desc {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .avatar {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 800px) {
+    .navbar-center {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .socials {
+        font-size: 1.5rem;
+    }
+
+    .main {
+        padding: 20px;
+    }
+
+    .actions button {
+        padding: 8px 15px;
+    }
+}
